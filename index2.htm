@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Eric!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive;
+            background: url('https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmRsNG80c2pvejNlcGN3aGVqYTl3eG1yaWRqYWdxa3I5ZGV3OXJkNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qhgEdrysAhLFoE92hR/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
+        }
+
+        .birthday-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+            text-align: center;
+            z-index: 2;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #ff1493;
+            text-shadow: 1px 1px 3px #ffd700;
+            margin: 0;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #ff1493;
+        }
+
+        #gifContainer {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #gifImage {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .floating {
+            position: absolute;
+            z-index: 1;
+            animation: floatUp 4s ease-in infinite;
+            font-size: 20px;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-container">
+        <h1>Happy Birthday, Eric!</h1>
+        <p>Coolest friend ever!</p>
+        <p>Have an epic day!</p>
+        <button onclick="showSurprise()">Click Me!</button>
+        <div id="gifContainer">
+            <img id="gifImage" src="https://media.giphy.com/media/XB0WBGfLio26t1vB8G/giphy.gif" alt="Birthday Vera GIF">
+            <p>For YOU, Eric!</p>
+        </div>
+    </div>
+
+    <!-- Уменьшил количество плавающих элементов -->
+    <div class="floating" style="left: 20%; animation-delay: 0s;">❤️</div>
+    <div class="floating" style="left: 40%; animation-delay: 1s;">😺</div>
+    <div class="floating" style="left: 60%; animation-delay: 2s;">💖</div>
+    <div class="floating" style="left: 80%; animation-delay: 3s;">🐾</div>
+
+    <script>
+        function showSurprise() {
+            var gifContainer = document.getElementById("gifContainer");
+            gifContainer.style.display = "block";
+        }
+
+        document.querySelectorAll('.floating').forEach(element => {
+            element.style.left = Math.random() * 90 + '%';
+        });
+    </script>
+</body>
+</html>
